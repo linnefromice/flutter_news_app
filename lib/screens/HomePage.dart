@@ -32,12 +32,12 @@ class HomePage extends StatelessWidget {
               initialData: [],
               stream: bloc.feedNewsList,
               builder: (context, snapshot) {
-                print(snapshot.data);
-                return Text('STREAM bloc.feedNewsList');
-                /*
+                if (snapshot.data == null) {
+                  return Text('NewsList is NULL');
+                }
                 final List list = snapshot.data;
                 if (list.length == 0) {
-                  return null;
+                  return Text('NewsList is NODATA.');
                 } else {
                   return Column(
                     children: <Widget>[
@@ -50,7 +50,6 @@ class HomePage extends StatelessWidget {
                     ],
                   );
                 }
-                */
               },
             )
           ],
